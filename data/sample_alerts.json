@@ -1,0 +1,293 @@
+[
+  {
+    "id": "ALT-2000",
+    "title": "Database Connection Pool Exhausted",
+    "description": "Database connection pool reached maximum capacity",
+    "severity": "Critical",
+    "status": "Active",
+    "affected_resources": [
+      "prod-db-01"
+    ],
+    "created_at": "2025-09-05T11:17:11.995284",
+    "resolved_at": null,
+    "metric_name": "db_connections",
+    "threshold_value": 83.69606036748793,
+    "current_value": 93.7572188742145,
+    "recommended_actions": [
+      "Review active connections",
+      "Restart connection pool",
+      "Check for long-running queries"
+    ],
+    "business_impact": "Medium",
+    "priority_rank": 1,
+    "auto_generated": true,
+    "confidence_score": 0.794401352766696
+  },
+  {
+    "id": "ALT-2001",
+    "title": "Database Connection Pool Exhausted",
+    "description": "Database connection pool reached maximum capacity",
+    "severity": "Critical",
+    "status": "Active",
+    "affected_resources": [
+      "prod-db-01"
+    ],
+    "created_at": "2025-09-05T15:29:11.995284",
+    "resolved_at": null,
+    "metric_name": "db_connections",
+    "threshold_value": 89.6450208249851,
+    "current_value": 88.79108830996401,
+    "recommended_actions": [
+      "Review active connections",
+      "Restart connection pool",
+      "Check for long-running queries"
+    ],
+    "business_impact": "High",
+    "priority_rank": 2,
+    "auto_generated": true,
+    "confidence_score": 0.7986888828432941
+  },
+  {
+    "id": "ALT-2002",
+    "title": "Database Connection Pool Exhausted",
+    "description": "Database connection pool reached maximum capacity",
+    "severity": "Critical",
+    "status": "Active",
+    "affected_resources": [
+      "prod-db-01"
+    ],
+    "created_at": "2025-09-05T06:54:11.995284",
+    "resolved_at": null,
+    "metric_name": "db_connections",
+    "threshold_value": 94.06691679014156,
+    "current_value": 94.65696782979883,
+    "recommended_actions": [
+      "Review active connections",
+      "Restart connection pool",
+      "Check for long-running queries"
+    ],
+    "business_impact": "Medium",
+    "priority_rank": 3,
+    "auto_generated": true,
+    "confidence_score": 0.8576987183510062
+  },
+  {
+    "id": "ALT-2003",
+    "title": "Disk Space Low",
+    "description": "Available disk space below 10% on file server",
+    "severity": "Warning",
+    "status": "Active",
+    "affected_resources": [
+      "file-server-01"
+    ],
+    "created_at": "2025-09-05T13:46:11.995284",
+    "resolved_at": null,
+    "metric_name": "disk_usage",
+    "threshold_value": 82.45945857599199,
+    "current_value": 85.8231322818774,
+    "recommended_actions": [
+      "Clean up temporary files",
+      "Archive old log files",
+      "Add additional storage"
+    ],
+    "business_impact": "High",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.7737970559791443
+  },
+  {
+    "id": "ALT-2004",
+    "title": "High CPU Usage Detected",
+    "description": "CPU usage on production server exceeded 85% threshold",
+    "severity": "Warning",
+    "status": "Active",
+    "affected_resources": [
+      "prod-web-01",
+      "prod-web-02"
+    ],
+    "created_at": "2025-09-05T06:51:11.995284",
+    "resolved_at": null,
+    "metric_name": "cpu_utilization",
+    "threshold_value": 89.44080622721792,
+    "current_value": 97.08640605411144,
+    "recommended_actions": [
+      "Check for runaway processes",
+      "Scale up server resources",
+      "Investigate recent deployments"
+    ],
+    "business_impact": "Low",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.9128685656559293
+  },
+  {
+    "id": "ALT-2005",
+    "title": "Database Connection Pool Exhausted",
+    "description": "Database connection pool reached maximum capacity",
+    "severity": "Critical",
+    "status": "Active",
+    "affected_resources": [
+      "prod-db-01"
+    ],
+    "created_at": "2025-09-05T12:51:11.995284",
+    "resolved_at": null,
+    "metric_name": "db_connections",
+    "threshold_value": 92.59642486420317,
+    "current_value": 92.64370630532963,
+    "recommended_actions": [
+      "Review active connections",
+      "Restart connection pool",
+      "Check for long-running queries"
+    ],
+    "business_impact": "High",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.7335362978661933
+  },
+  {
+    "id": "ALT-2006",
+    "title": "High CPU Usage Detected",
+    "description": "CPU usage on production server exceeded 85% threshold",
+    "severity": "Warning",
+    "status": "Active",
+    "affected_resources": [
+      "prod-web-01",
+      "prod-web-02"
+    ],
+    "created_at": "2025-09-05T16:05:11.995284",
+    "resolved_at": null,
+    "metric_name": "cpu_utilization",
+    "threshold_value": 80.27603611769798,
+    "current_value": 88.53668345525344,
+    "recommended_actions": [
+      "Check for runaway processes",
+      "Scale up server resources",
+      "Investigate recent deployments"
+    ],
+    "business_impact": "Medium",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.9386061466467593
+  },
+  {
+    "id": "ALT-2007",
+    "title": "Disk Space Low",
+    "description": "Available disk space below 10% on file server",
+    "severity": "Warning",
+    "status": "Active",
+    "affected_resources": [
+      "file-server-01"
+    ],
+    "created_at": "2025-09-05T13:11:11.995284",
+    "resolved_at": null,
+    "metric_name": "disk_usage",
+    "threshold_value": 86.969727085059,
+    "current_value": 92.53086709910754,
+    "recommended_actions": [
+      "Clean up temporary files",
+      "Archive old log files",
+      "Add additional storage"
+    ],
+    "business_impact": "Low",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.7193101152780397
+  },
+  {
+    "id": "ALT-2008",
+    "title": "Disk Space Low",
+    "description": "Available disk space below 10% on file server",
+    "severity": "Warning",
+    "status": "Active",
+    "affected_resources": [
+      "file-server-01"
+    ],
+    "created_at": "2025-09-05T14:53:11.995284",
+    "resolved_at": null,
+    "metric_name": "disk_usage",
+    "threshold_value": 86.26090344817014,
+    "current_value": 87.54952160777847,
+    "recommended_actions": [
+      "Clean up temporary files",
+      "Archive old log files",
+      "Add additional storage"
+    ],
+    "business_impact": "High",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.7790729941523056
+  },
+  {
+    "id": "ALT-2009",
+    "title": "Database Connection Pool Exhausted",
+    "description": "Database connection pool reached maximum capacity",
+    "severity": "Critical",
+    "status": "Active",
+    "affected_resources": [
+      "prod-db-01"
+    ],
+    "created_at": "2025-09-05T08:30:11.995284",
+    "resolved_at": null,
+    "metric_name": "db_connections",
+    "threshold_value": 85.42684729960982,
+    "current_value": 91.1836476286292,
+    "recommended_actions": [
+      "Review active connections",
+      "Restart connection pool",
+      "Check for long-running queries"
+    ],
+    "business_impact": "High",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.7352332222912292
+  },
+  {
+    "id": "ALT-2010",
+    "title": "Disk Space Low",
+    "description": "Available disk space below 10% on file server",
+    "severity": "Warning",
+    "status": "Active",
+    "affected_resources": [
+      "file-server-01"
+    ],
+    "created_at": "2025-09-05T10:38:11.995284",
+    "resolved_at": null,
+    "metric_name": "disk_usage",
+    "threshold_value": 90.16516142186289,
+    "current_value": 98.71200589130066,
+    "recommended_actions": [
+      "Clean up temporary files",
+      "Archive old log files",
+      "Add additional storage"
+    ],
+    "business_impact": "High",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.8850505168387934
+  },
+  {
+    "id": "ALT-2011",
+    "title": "High CPU Usage Detected",
+    "description": "CPU usage on production server exceeded 85% threshold",
+    "severity": "Warning",
+    "status": "Active",
+    "affected_resources": [
+      "prod-web-01",
+      "prod-web-02"
+    ],
+    "created_at": "2025-09-05T09:14:11.995284",
+    "resolved_at": null,
+    "metric_name": "cpu_utilization",
+    "threshold_value": 94.56970309218013,
+    "current_value": 87.50022571600401,
+    "recommended_actions": [
+      "Check for runaway processes",
+      "Scale up server resources",
+      "Investigate recent deployments"
+    ],
+    "business_impact": "High",
+    "priority_rank": null,
+    "auto_generated": true,
+    "confidence_score": 0.937504894377545
+  }
+]

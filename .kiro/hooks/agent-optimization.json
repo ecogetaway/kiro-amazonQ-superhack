@@ -1,0 +1,14 @@
+{
+  "name": "Optimize Agent Performance",
+  "description": "Analyze agent performance and suggest optimizations",
+  "trigger": {
+    "type": "file_save",
+    "pattern": "logs/agent-performance.json"
+  },
+  "agent_prompt": "Agent performance data has been updated. Please:\n1. Analyze decision accuracy and response times for each agent\n2. Identify areas for improvement in autonomous decision-making\n3. Suggest threshold adjustments based on performance metrics\n4. Recommend coordination improvements between agents\n\nFocus on enhancing the agentic capabilities while maintaining reliability. Provide specific, actionable recommendations for each agent.",
+  "context_files": [
+    ".kiro/steering/agent-behavior.md",
+    ".kiro/steering/itsm-standards.md"
+  ],
+  "enabled": true
+}

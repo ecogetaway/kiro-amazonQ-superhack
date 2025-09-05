@@ -1,0 +1,15 @@
+{
+  "name": "Prepare Demo Scenario",
+  "description": "Manually triggered hook to prepare and validate demo scenarios",
+  "trigger": {
+    "type": "manual",
+    "button_text": "Prepare Demo"
+  },
+  "agent_prompt": "Please prepare the hackathon demo by:\n1. Validating all sample data is properly formatted\n2. Testing each agent's decision-making capabilities\n3. Verifying multi-agent coordination workflows\n4. Generating compelling demo scenarios with clear narratives\n\nUse the demo guidelines from steering to ensure the presentation highlights agentic AI capabilities effectively. Focus on autonomous decision-making, agent coordination, and business value.",
+  "context_files": [
+    ".kiro/steering/hackathon-demo.md",
+    ".kiro/steering/itsm-standards.md",
+    ".kiro/steering/agent-behavior.md"
+  ],
+  "enabled": true
+}

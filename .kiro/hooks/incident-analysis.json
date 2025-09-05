@@ -1,0 +1,14 @@
+{
+  "name": "Analyze New Incident",
+  "description": "Automatically analyze and correlate new incidents when they are created",
+  "trigger": {
+    "type": "file_save",
+    "pattern": "data/incidents/*.json"
+  },
+  "agent_prompt": "A new incident has been created. Please:\n1. Analyze the incident description for correlation with existing incidents\n2. Determine the appropriate severity level\n3. Check if this incident should trigger problem creation\n4. Generate initial response recommendations\n\nUse the ITIL standards from steering to guide your analysis. Focus on autonomous decision-making with clear reasoning.",
+  "context_files": [
+    ".kiro/steering/itsm-standards.md",
+    ".kiro/steering/agent-behavior.md"
+  ],
+  "enabled": true
+}

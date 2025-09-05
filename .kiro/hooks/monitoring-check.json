@@ -1,0 +1,14 @@
+{
+  "name": "Proactive Health Check",
+  "description": "Run proactive monitoring analysis when new metrics are available",
+  "trigger": {
+    "type": "file_save",
+    "pattern": "data/metrics/*.json"
+  },
+  "agent_prompt": "New infrastructure metrics have been collected. Please:\n1. Analyze the metrics for anomalies and trends\n2. Identify the top 3 most critical issues requiring attention\n3. Generate preventive action recommendations\n4. Assess business impact and urgency\n\nUse your autonomous monitoring capabilities to make decisions about alert severity and required actions. Provide clear reasoning for your recommendations.",
+  "context_files": [
+    ".kiro/steering/itsm-standards.md",
+    ".kiro/steering/agent-behavior.md"
+  ],
+  "enabled": true
+}
