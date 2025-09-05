@@ -29,3 +29,4 @@ venv.bak/
 
 .streamlit/secrets.toml
 *.log
+.vercel
