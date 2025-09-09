@@ -36,13 +36,17 @@ def main():
     
     # Sidebar
     st.sidebar.markdown("# 🛠️ Navigation")
-    page = st.sidebar.radio("Select Demo:", ["🏠 Dashboard", "🔗 Correlation", "📊 Monitoring", "🔍 Problem Management"])
+    page = st.sidebar.radio("Select Demo:", ["🏠 Dashboard", "🔗 Correlation", "📊 Monitoring", "🔍 Problem Management", "📚 Knowledge Base"])
     
     # Initialize session state
     if 'incidents' not in st.session_state:
         st.session_state.incidents = get_incidents()
     if 'metrics' not in st.session_state:
         st.session_state.metrics = get_metrics()
+    if 'knowledge_agent' not in st.session_state:
+        st.session_state.knowledge_agent = "initialized"  # Simplified for demo
+    
+
     
     # Route to pages
     if page == "🏠 Dashboard":
@@ -53,6 +57,8 @@ def main():
         monitoring_page()
     elif page == "🔍 Problem Management":
         problem_page()
+    elif page == "📚 Knowledge Base":
+        knowledge_page()
 
 def dashboard():
     st.markdown("## 📈 Dashboard Overview")
@@ -70,7 +76,7 @@ def dashboard():
         st.metric("🚨 Critical (P1)", "1", delta="0 new")
     
     with col4:
-        st.metric("🔍 Problems Created", "2", delta="1 today")
+        st.metric("📚 Knowledge Articles", "3", delta="1 auto-created")
     
     st.markdown("---")
     
@@ -97,18 +103,18 @@ def dashboard():
     
     with col3:
         with st.container():
-            st.markdown("### 🔍 Problem Agent")
+            st.markdown("### 📚 Knowledge Agent")
             st.success("🟢 Status: Active")
-            st.metric("Problems Created", "2")
-            st.metric("Patterns Analyzed", "7")
-            st.metric("Auto Creation Rate", "85%")
+            st.metric("Articles Available", "3")
+            st.metric("Auto-Generated", "3")
+            st.metric("Avg Effectiveness", "80%")
     
     # Recent activity using info/warning/error boxes
     st.markdown("## 🕒 Recent Activity")
     
     st.info("🔗 **Latest Correlation:** GROUP_INCIDENTS (High Confidence) - 2 minutes ago")
     st.warning("📊 **Top Alert:** MON-001 (Severity: 91%) - 5 minutes ago")
-    st.error("🔍 **Latest Problem:** PRB-001 (Critical priority) - 10 minutes ago")
+    st.info("📚 **Knowledge Created:** KB-004 auto-generated from PRB-001 - 5 minutes ago")
 
 def correlation_page():
     st.markdown("## 🔗 Incident Correlation Agent")
@@ -292,7 +298,126 @@ st.sidebar.markdown("*Autonomous agents working together*")
 st.sidebar.markdown("### 📊 Quick Stats")
 st.sidebar.metric("Uptime", "99.9%", delta="0.1%")
 st.sidebar.metric("Incidents Processed", "156", delta="12 today")
-st.sidebar.metric("Problems Resolved", "23", delta="3 this week")
+st.sidebar.metric("Knowledge Articles", "3", delta="1 created today")
+
+# Add knowledge base integration hints to existing pages
+def add_knowledge_integration():
+    """Add knowledge base suggestions to correlation and monitoring results"""
+    pass
+
+def knowledge_page():
+    st.markdown("## 📚 Knowledge Base Agent")
+    
+    # Knowledge base search
+    col1, col2 = st.columns([1, 1])
+    
+    with col1:
+        st.markdown("### 🔍 Search Knowledge Base")
+        
+        search_query = st.text_input("Search for solutions:", placeholder="e.g., email slow, database timeout")
+        
+        if search_query:
+            # Simulate knowledge search results
+            st.success("✅ Found 3 relevant articles")
+            
+            with st.expander("📝 #1 Email Server Slow Response - Memory Leak Fix", expanded=True):
+                st.write("**Type:** Solution | **Effectiveness:** 90% | **Usage:** 15 times")
+                st.markdown("---")
+                st.markdown("""
+                **Problem:** Email server experiencing slow response times
+                
+                **Root Cause:** Memory leak in email service process
+                
+                **Solution:**
+                1. Restart email service: `sudo systemctl restart postfix`
+                2. Clear memory cache: `sudo sync && echo 3 > /proc/sys/vm/drop_caches`
+                3. Monitor memory usage: `free -h`
+                
+                **Prevention:** Schedule weekly service restarts
+                """)
+                
+                if st.button("Use This Solution #1"):
+                    st.success("✅ Solution applied! Saved 30 minutes resolution time.")
+            
+            with st.expander("📝 #2 Database Connection Timeout - Quick Workaround"):
+                st.write("**Type:** Workaround | **Effectiveness:** 70% | **Usage:** 8 times")
+                st.markdown("**Quick Fix:** Increase connection pool size and restart app servers")
+    
+    with col2:
+        st.markdown("### 🤖 AI-Powered Suggestions")
+        
+        incidents = st.session_state.incidents
+        incident_options = [f"{inc['id']}: {inc['title']}" for inc in incidents]
+        selected_incident = st.selectbox("Select incident for suggestions:", incident_options)
+        
+        if selected_incident and st.button("🔍 Get AI Suggestions", type="primary"):
+            with st.spinner("🤖 AI analyzing incident for knowledge matches..."):
+                time.sleep(2)
+                st.session_state.kb_suggestions = True
+        
+        if hasattr(st.session_state, 'kb_suggestions'):
+            st.success("✅ Found 2 suggested solutions")
+            
+            st.info("💡 **Suggested:** Email Server Slow Response Fix")
+            st.write("Relevance: 0.9 | Effectiveness: 90%")
+            
+            st.info("💡 **Suggested:** High CPU Usage Optimization")
+            st.write("Relevance: 0.7 | Effectiveness: 80%")
+    
+    # Knowledge base metrics
+    st.markdown("---")
+    st.markdown("### 📊 Knowledge Base Analytics")
+    
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Total Articles", "3")
+    with col2:
+        st.metric("Auto-Generated", "3")
+    with col3:
+        st.metric("Total Usage", "35")
+    with col4:
+        st.metric("Avg Effectiveness", "80%")
+    
+    # Auto-create knowledge demo
+    st.markdown("---")
+    st.markdown("### 🤖 Auto-Create Knowledge Article")
+    
+    col1, col2 = st.columns([1, 1])
+    
+    with col1:
+        st.markdown("**Simulate resolved incident:**")
+        
+        resolution_notes = st.text_area(
+            "Resolution steps:",
+            value="1. Restarted email service\n2. Cleared memory cache\n3. Updated configuration\n4. Verified functionality",
+            height=100
+        )
+        
+        if st.button("📄 Auto-Create Knowledge Article", type="primary"):
+            with st.spinner("🤖 AI creating knowledge article..."):
+                time.sleep(2)
+                st.session_state.new_article = True
+    
+    with col2:
+        if hasattr(st.session_state, 'new_article'):
+            st.success("✅ Created: KB-004")
+            
+            with st.expander("📝 Email Server Issues - Resolution Guide", expanded=True):
+                st.markdown("""
+                **Problem:** Email server slow response
+                
+                **System Affected:** prod-mail-01
+                
+                **Resolution Steps:**
+                1. Restarted email service
+                2. Cleared memory cache
+                3. Updated configuration
+                4. Verified functionality
+                
+                **Auto-generated from incident:** INC-001
+                """)
+                st.write("**Keywords:** email, slow, memory, restart")
+                st.write("**Auto-generated:** Yes")
 
 if __name__ == "__main__":
     main()
