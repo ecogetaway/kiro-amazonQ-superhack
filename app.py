@@ -10,54 +10,98 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better aesthetics
-st.markdown("""
+# Custom CSS for better aesthetics - Force refresh with timestamp
+st.markdown(f"""
 <style>
-    .main-header {
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-        padding: 2rem;
-        border-radius: 10px;
-        color: white;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-    .metric-card {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        border-left: 4px solid #667eea;
-    }
-    .agent-card {
+    /* Main app styling - v2.0 */
+    .stApp {{
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin: 1rem 0;
-        border: 1px solid #e0e0e0;
-    }
-    .success-card {
-        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-        padding: 1rem;
-        border-radius: 8px;
-        margin: 0.5rem 0;
-    }
-    .warning-card {
-        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-        padding: 1rem;
-        border-radius: 8px;
-        margin: 0.5rem 0;
-    }
-    .stButton > button {
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 0.5rem 1rem;
-        font-weight: bold;
-    }
-    .sidebar .sidebar-content {
-        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-    }
+    }}
+    
+    .main-header {{
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+        padding: 2rem !important;
+        border-radius: 15px !important;
+        color: white !important;
+        text-align: center !important;
+        margin-bottom: 2rem !important;
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3) !important;
+    }}
+    
+    .metric-card {{
+        background: white !important;
+        padding: 1.5rem !important;
+        border-radius: 15px !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+        border-left: 5px solid #667eea !important;
+        margin: 1rem 0 !important;
+        transition: transform 0.2s ease !important;
+    }}
+    
+    .metric-card:hover {{
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    }}
+    
+    .agent-card {{
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        padding: 1.5rem !important;
+        border-radius: 15px !important;
+        margin: 1rem 0 !important;
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3) !important;
+        border: none !important;
+    }}
+    
+    .success-card {{
+        background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%) !important;
+        color: white !important;
+        padding: 1rem !important;
+        border-radius: 10px !important;
+        margin: 0.5rem 0 !important;
+        box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3) !important;
+    }}
+    
+    .warning-card {{
+        background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%) !important;
+        color: white !important;
+        padding: 1rem !important;
+        border-radius: 10px !important;
+        margin: 0.5rem 0 !important;
+        box-shadow: 0 2px 10px rgba(255, 152, 0, 0.3) !important;
+    }}
+    
+    .stButton > button {{
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 10px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: bold !important;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+        transition: all 0.2s ease !important;
+    }}
+    
+    .stButton > button:hover {{
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+    }}
+    
+    .stSelectbox > div > div {{
+        background: white !important;
+        border-radius: 10px !important;
+        border: 2px solid #667eea !important;
+    }}
+    
+    /* Sidebar styling */
+    .css-1d391kg {{
+        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
+    }}
+    
+    /* Hide Streamlit branding */
+    #MainMenu {{visibility: hidden;}}
+    footer {{visibility: hidden;}}
+    header {{visibility: hidden;}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -80,11 +124,12 @@ def get_metrics():
     }
 
 def main():
-    # Header
+    # Header with enhanced styling
     st.markdown("""
     <div class="main-header">
-        <h1>🤖 AI-Powered ITSM Solution</h1>
-        <p>Autonomous agents with predictive analytics for intelligent IT service management</p>
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">🤖 AI-Powered ITSM Solution</h1>
+        <p style="font-size: 1.2rem; opacity: 0.9;">Autonomous agents with predictive analytics for intelligent IT service management</p>
+        <p style="font-size: 1rem; opacity: 0.7; margin-top: 1rem;">✨ Enhanced with Beautiful UI ✨</p>
     </div>
     """, unsafe_allow_html=True)
     
