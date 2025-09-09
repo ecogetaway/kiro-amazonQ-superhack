@@ -31,7 +31,7 @@ def get_metrics():
 def main():
     # Header with emojis and colors
     st.markdown("# 🤖 AI-Powered ITSM Solution")
-    st.markdown("### *Autonomous agents with predictive analytics for intelligent IT service management*")
+    st.markdown("### *Autonomous agents with predictive analytics and knowledge management for intelligent IT service management*")
     st.markdown("---")
     
     # Sidebar
